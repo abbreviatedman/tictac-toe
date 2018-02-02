@@ -15,7 +15,7 @@ var appMethods = {
     return this.board[this.spaceNumber(row, col)];
   },
 
-  image: function (row, col) {
+  getImage: function (row, col) {
     var content = this.spaceContent(row, col);
     switch(content) {
     case 'X':
@@ -27,7 +27,7 @@ var appMethods = {
     }
   },
 
-  submit: function (row, col) {
+  handleBoardClick: function (row, col) {
     this.gameMessage = this.initialState.gameMessage;
 
     var index = this.spaceNumber(row, col);
