@@ -6,7 +6,8 @@ var appMethods = {
       : 'About TicTac Toe';
   },
 
-  spaceNumber: function(row, col) {
+  spaceNumber: function (row, col) {
+    // translates from grid with columns and rows to a linear array index.
     var index = row * 3 + col;
     return index;
   },
@@ -28,12 +29,14 @@ var appMethods = {
   },
 
   handleBoardClick: function (row, col) {
-    this.gameMessage = this.initialState.gameMessage;
 
     var index = this.spaceNumber(row, col);
     var board = this.board;
     var isXTurn = this.isXTurn;
     var char = isXTurn ? 'X' : 'O';
+
+    // Reversed because that's who's turn it will be when we're DONE.
+    this.gameMessage = isXTurn ? 'It\'s Toe\'s turn!' : 'It\'s Tic Tac\'s turn!';
 
     if (this.gameIsOver) {
       this.gameMessage = 'The game is over, but you can always start again!';
@@ -45,6 +48,11 @@ var appMethods = {
       return;
     }
 
+
+    // 'Vue.set' is Vue's workaround to the fact that JS won't let it know when
+    // 'array[index] = value' has happened. It can wrap the methods like 'push'
+    // and 'pop', but you need to use a setter to directly set values. Otherwise
+    // Vue won't know you've changed the board!
     Vue.set(this.board, index, char);
     this.isXTurn = !isXTurn;
 
@@ -71,6 +79,9 @@ var appMethods = {
   },
 
   checkWinPossibilities: function (board, index, char, col) {
+
+    // There are shorter algorithms, but this one's more explicit. Also faster!
+    // Not that 'fast' matters when you're handling so few items.
     var upOneMatches = board[index - 3] === char;
     var downOneMatches = board[index + 3] === char;
     var leftOneMatches = board[index - 1] === char
@@ -120,6 +131,7 @@ var appMethods = {
   },
 
   didWeTie: function () {
+    // Return whether or not there are any spaces left.
     return !this.board.includes(' ');
   }
 };

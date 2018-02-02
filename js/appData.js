@@ -4,7 +4,7 @@ var appData = {
     gameIsOver: false,
     showAbout: false,
     aboutButtonCopy: 'About Tic Tac Toe',
-    gameMessage: '-----------------------------------------------',
+    gameMessage: 'It\'s Tic Tac\'s turn!',
   },
   board: [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
   isXTurn: true,
@@ -13,7 +13,7 @@ var appData = {
   ticTacUri: './images/tictac.jpg',
   showAbout: false,
   aboutButtonCopy: 'About Tic Tac Toe',
-  gameMessage: '-----------------------------------------------',
+  gameMessage: 'It\'s Tic Tac\'s turn!',
   aboutSectionCopy: 'From the Wikipedia summary:\n\
   \n\
   Tic Tac Toe was invented in 1970 by the Ferrero corporation as\n\
