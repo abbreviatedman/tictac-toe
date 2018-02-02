@@ -1,6 +1,6 @@
 new Vue({
   el: '.app',
-  data: appInitialData,
+  data: appData,
   methods: appMethods
 });
 

@@ -1,4 +1,11 @@
-var appInitialData = {
+var appData = {
+  initialState: {
+    isXTurn: true,
+    gameIsOver: false,
+    showAbout: false,
+    aboutButtonCopy: 'About Tic Tac Toe',
+    gameMessage: '-----------------------------------------------',
+  },
   board: [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
   isXTurn: true,
   gameIsOver: false,
@@ -7,7 +14,6 @@ var appInitialData = {
   showAbout: false,
   aboutButtonCopy: 'About Tic Tac Toe',
   gameMessage: '-----------------------------------------------',
-  horizontalLine: '-----------------------------------------------',
   aboutSectionCopy: 'From the Wikipedia summary:\n\
   \n\
   Tic Tac Toe was invented in 1970 by the Ferrero corporation as\n\

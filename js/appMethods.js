@@ -28,7 +28,7 @@ var appMethods = {
   },
 
   submit: function (row, col) {
-    this.gameMessage = this.horizontalLine;
+    this.gameMessage = this.initialState.gameMessage;
 
     var index = this.spaceNumber(row, col);
     var board = this.board;
@@ -36,7 +36,7 @@ var appMethods = {
     var char = isXTurn ? 'X' : 'O';
 
     if (this.gameIsOver) {
-      this.gameMessage = 'The game is over, but you can start again!';
+      this.gameMessage = 'The game is over, but you can always start again!';
       return;
     }
 
@@ -57,16 +57,17 @@ var appMethods = {
       this.gameMessage = 'Game over! ' + winner + ' won!';
     } else if (gameEndedInTie) {
       this.gameIsOver = true;
-      this.gameMessage = 'Game over! Another boring tie!';
+      this.gameMessage = 'Game over! Another boring tie...';
     }
   },
 
   resetGame: function () {
     this.board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-    this.isXTurn = true;
-    this.gameIsOver = false;
-    this.showAbout = false;
-    this.gameMessage = this.horizontalLine;
+    this.isXTurn = this.initialState.isXTurn;
+    this.gameIsOver = this.initialState.gameIsOver;
+    this.showAbout = this.initialState.showAbout;
+    this.gameMessage = this.initialState.gameMessage;
+    this.aboutButtonCopy = this.initialState.aboutButtonCopy;
   },
 
   checkWinPossibilities: function (board, index, char, col) {
